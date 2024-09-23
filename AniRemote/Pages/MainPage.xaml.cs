@@ -20,6 +20,7 @@ namespace AniRemote
 			btnWideOpen.Clicked += BtnWideOpen_Clicked;
 			btnHalfOpen.Clicked += BtnHalfOpen_Clicked;
 			btnEyesClosed.Clicked += BtnEyesClosed_Clicked;
+			ShowKoord(0, 0);
 		}
 
 		private void BtnEyesClosed_Clicked(object? sender, EventArgs e)
@@ -50,11 +51,15 @@ namespace AniRemote
 			if (y > cDrawLimit) { y = cDrawLimit; }
 			else if (y < -cDrawLimit) { y = -cDrawLimit; }
 
-			lblCoord.Text = $"X: {x.ToString("f1")}\nY: {y.ToString("f1")}";
+			ShowKoord(x, y);
+			_ = ViewModel.EyeCoordinatesChanged((short)(x * cTransFactor), (short)(y * cTransFactor));
+		}
+
+		private void ShowKoord(double x, double y)
+		{
+			lblCoord.Text = $"X: {x.ToString("f1")}   Y: {y.ToString("f1")}";
 			image1.TranslationX = x;
 			image1.TranslationY = y;
-
-			_ = ViewModel.EyeCoordinatesChanged((short)(x * cTransFactor), (short)(y * cTransFactor));
 		}
 
 		private void DrawView_DrawingLineStarted(object sender, CommunityToolkit.Maui.Core.DrawingLineStartedEventArgs e)
@@ -64,8 +69,7 @@ namespace AniRemote
 
 		private void DrawView_DrawingLineCompleted(object sender, CommunityToolkit.Maui.Core.DrawingLineCompletedEventArgs e)
 		{
-			image1.TranslationX = image1.TranslationY = 0;
-			lblCoord.Text = $"X:0: Y:0";
+			ShowKoord(0, 0);
 			_ = ViewModel.EyeCoordinatesChanged(0, 0);
 		}
 

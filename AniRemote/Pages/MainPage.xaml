@@ -41,20 +41,20 @@
 			<Button Grid.Row="3"
 				  x:Name="btnBlink"
 				  Text="Blink" FontSize="Large"
-				  Margin="5,0,5,30" Padding="0,40,0,40"
+				  Margin="5,0,5,15" Padding="0,40,0,40"
 				Pressed="btnBlink_Pressed" Released="btnBlink_Released"/>
 			<Grid x:Name="gridBlinkLR" Grid.Row="4">
 				<Grid.ColumnDefinitions>
 					<ColumnDefinition Width="*"/>
 					<ColumnDefinition Width="*"/>
 				</Grid.ColumnDefinitions>
-				<Button Grid.Column="0" x:Name="btnWinkLeft" Margin="5" Text="Wink left" Pressed="btnWinkLeft_Pressed" Released="btnWinkLeft_Released" />
-				<Button Grid.Column="1" x:Name="btnWinkRight" Margin="5" Text="Wink right" Pressed="btnWinkRight_Pressed" Released="btnWinkRight_Released" />
+				<Button Grid.Column="0" x:Name="btnWinkLeft" Margin="5,5,5,15" Padding="0,20,0,20" Text="Wink left" Pressed="btnWinkLeft_Pressed" Released="btnWinkLeft_Released" />
+				<Button Grid.Column="1" x:Name="btnWinkRight" Margin="5,5,5,15" Padding="0,20,0,20" Text="Wink right" Pressed="btnWinkRight_Pressed" Released="btnWinkRight_Released" />
 			</Grid>
 		</Grid>
 		<Slider x:Name="sliderLids" Grid.Column="1"
 				  Rotation="-90" Minimum="-100" Maximum="100" Value="0" HeightRequest="90" WidthRequest="300"
-				  MinimumTrackColor="Red" MaximumTrackColor="Blue" Margin="-115,0,-115,0"
+				  MinimumTrackColor="Red" MaximumTrackColor="Blue" Margin="-100,0,-115,0"
 				  ThumbImageSource="Images/rect65.png"
 				  ValueChanged="sliderLids_ValueChanged"/>
 		<Grid Grid.Column="2" >
@@ -65,11 +65,11 @@
 				<RowDefinition Height="*"/>
 				<RowDefinition Height="Auto"/>
 			</Grid.RowDefinitions>
-			<Button x:Name="btnWideOpen" Text="Wide Open" Grid.Row="0" Margin="5" />
-			<Button x:Name="btnHalfOpen" Text="Half Open" Grid.Row="2" Margin="5"/>
-			<Button x:Name="btnEyesClosed" Text="Eyes Closed" Grid.Row="4" Margin="5"/>
+			<Button x:Name="btnWideOpen" Text="Wide Open" Grid.Row="0" Margin="5,15,5,5" Padding="15,20,15,20" />
+			<Button x:Name="btnHalfOpen" Text="Half Open" Grid.Row="2" Margin="5" Padding="15,20,15,20" />
+			<Button x:Name="btnEyesClosed" Text="Eyes Closed" Grid.Row="4" Margin="5,5,5,15" Padding="15,20,15,20" />
 		</Grid>
-		<Label x:Name="lblCoord" Grid.Column="3" Margin="10,10,0,0" />
+		<Label x:Name="lblCoord" Grid.Column="4" Margin="10,10,0,0" />
 		<views:DrawingView
 					x:Name="DrawView"
 					Grid.Column="4"
